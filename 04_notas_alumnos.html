@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="totalAprobados();">Aprobados</button>
+    <button onclick="calculateAve();">Average</button>
+    <button onclick="notaAlta();">highest note</button>
+    <button onclick="nuevaNota();">new note</button>
+    <input type ="text" id="nota">
+    <div id="result"></div>
+
+    <script>
+        //array con las notas
+        let notas = [7,5,2,4,9,6,1,3,4,8,7,6];
+        function totalAprobados(){
+            let totalAprobados=0;
+            /*for(let i=0;i<notas.length;i++){
+            if(notas[i]>5){
+                totalAprobados++;
+            }
+        }
+        }*/
+       for(let n of notas){
+        if(n>=5){
+            totalAprobados++;
+        }
+       }
+       alert("Total aprobados: " +totalAprobados);
+       
+    }
+ 
+
+       function calculateAve(){
+        let newSum = 0
+        for(let n of notas){
+            newSum = newSum + n
+            
+        }
+        average= newSum/notas.length
+            
+        alert("the average note is " +average)
+       }
+
+
+       function notaAlta(){
+        let max=notas[0];
+        for(let n of notas){
+            if(n>max){
+                max=n;
+            }
+        }
+        alert("the highest note is: "+max)
+
+       
+    }
+         function nuevaNota(){
+            let nota=prompt("introduce nueva nota");
+            do{
+                nota=prompt("introduce nueva nota");
+                
+            }while(nota<0||nota>10)
+
+            notas.push(parseInt(nota));
+        }
+    </script>
+
+    
+    
+
+</body>
+</html>
